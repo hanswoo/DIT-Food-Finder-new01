@@ -58,7 +58,7 @@ class FoodFinderTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         print(foodStoreNames[indexPath.row])
-        
+       /*
         let optionMenu = UIAlertController(title: nil, message: "뭘원하시나요?", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
         let cellAction = UIAlertAction(title: "전화걸기", style: .default){(action: UIAlertAction) -> Void in
@@ -79,6 +79,7 @@ class FoodFinderTableViewController: UITableViewController {
             optionMenu.addAction(cellAction)
             optionMenu.addAction(checkinAction)
             present(optionMenu, animated: true)
+        */
     }
   
     /*
@@ -116,14 +117,25 @@ class FoodFinderTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "Detail"{
+            //optional binding
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let destinationController = segue.destination as!
+                DetailViewController
+                destinationController.cellName = foodStoreNames[indexPath.row]
+                destinationController.cellAddress = foodStoreAddress[indexPath.row]
+                destinationController.cellImage = foodStoreImages[indexPath.row]
+            }
+        }
     }
-    */
+ 
 
 }

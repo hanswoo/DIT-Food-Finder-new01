@@ -6,9 +6,58 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="jc2-C9-qx1">
+            <objects>
+                <viewController id="AFN-F6-lnN" customClass="DetailViewController" customModule="DIT_Food_Finder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dro-b5-HPG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vO-60-89J">
+                                <rect key="frame" x="40" y="269" width="282" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zHU-QF-keE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6v-pf-dE8">
+                                <rect key="frame" x="61" y="83" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXP-Of-mWC">
+                                <rect key="frame" x="61" y="367" width="240" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1vO-60-89J" firstAttribute="leading" secondItem="n04-mm-cc6" secondAttribute="leading" constant="40" id="E0T-NZ-oX2"/>
+                            <constraint firstItem="n04-mm-cc6" firstAttribute="trailing" secondItem="1vO-60-89J" secondAttribute="trailing" constant="53" id="YZ5-8y-wYn"/>
+                            <constraint firstItem="1vO-60-89J" firstAttribute="top" secondItem="n04-mm-cc6" secondAttribute="top" constant="205" id="fe2-Yk-Luu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n04-mm-cc6"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailAddress" destination="KXP-Of-mWC" id="o3A-Qx-M8N"/>
+                        <outlet property="detailImage" destination="u6v-pf-dE8" id="rOW-8D-Kew"/>
+                        <outlet property="detailName" destination="1vO-60-89J" id="XiM-He-hHY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ACf-6h-Jue" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.8" y="89.505247376311857"/>
+        </scene>
         <!--Food Finder Table View Controller-->
         <scene sceneID="tA3-Jr-WYr">
             <objects>
@@ -74,6 +123,7 @@
                                     <outlet property="cellImage" destination="oMR-Dw-ltF" id="9Ff-3J-KLk"/>
                                     <outlet property="cellName" destination="chG-5n-fhy" id="AdE-m1-n3I"/>
                                     <outlet property="cellType" destination="xI8-zn-hif" id="8H6-Hi-MJX"/>
+                                    <segue destination="AFN-F6-lnN" kind="show" identifier="Detail" id="mYg-Ua-Rju"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
